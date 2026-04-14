@@ -21,16 +21,19 @@ def main():
             if event.type == pg.QUIT: return
 
         y = kk_rct.move_ip
+        move_x = 0
+        move_y = 0
         key_lst = pg.key.get_pressed()
-        y(-1,0)
+        move_x = -1
         if key_lst[pg.K_UP]:
-            y(0,-1)
+            move_y = -1
         if key_lst[pg.K_DOWN]:
-            y(0,1)
+            move_y = 1
         if key_lst[pg.K_RIGHT]:
-            y(2,0)
+            move_x = 1
         if key_lst[pg.K_LEFT]:
-            y(-1,0)
+            move_x = -2
+        y(move_x, move_y)
         
         x = tmr%3200 #練習5
         screen.blit(bg_img, [-x, 0])
